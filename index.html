@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VORTEX | Loja Online</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f7;
+      color: #171717;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 22px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 27px;
+      font-weight: 900;
+      letter-spacing: 3px;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #a78bfa;
+    }
+
+    .hero {
+      margin: 35px 8%;
+      padding: 65px 8%;
+      background: linear-gradient(120deg, #211044, #673de6);
+      border-radius: 20px;
+      color: white;
+    }
+
+    .hero span {
+      color: #c4b5fd;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    .hero h1 {
+      font-size: clamp(35px, 6vw, 65px);
+      margin: 18px 0;
+      max-width: 600px;
+    }
+
+    .hero p {
+      color: #e5e0f5;
+      line-height: 1.7;
+      max-width: 430px;
+    }
+
+    .botao {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 14px 25px;
+      border-radius: 8px;
+      background: white;
+      color: #291450;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .botao:hover {
+      background: #c4b5fd;
+      transform: translateY(-3px);
+    }
+
+    main {
+      padding: 10px 8% 60px;
+    }
+
+    .titulo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      margin: 20px 0 25px;
+    }
+
+    .titulo h2 {
+      font-size: 27px;
+    }
+
+    .titulo p {
+      color: #777;
+      font-size: 14px;
+    }
+
+    .produtos {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .produto {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #e9e9ed;
+      transition: 0.3s;
+    }
+
+    .produto:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px #00000012;
+    }
+
+    .imagem {
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 75px;
+      background: #efedf5;
+    }
+
+    .produto:nth-child(2) .imagem {
+      background: #e5edf0;
+    }
+
+    .produto:nth-child(3) .imagem {
+      background: #f4e9df;
+    }
+
+    .produto:nth-child(4) .imagem {
+      background: #e8e8e8;
+    }
+
+    .info {
+      padding: 18px;
+    }
+
+    .categoria {
+      font-size: 11px;
+      color: #777;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .info h3 {
+      margin: 10px 0;
+      font-size: 17px;
+    }
+
+    .preco {
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .parcelamento {
+      font-size: 12px;
+      color: #777;
+      margin-top: 5px;
+    }
+
+    .comprar {
+      display: block;
+      margin-top: 17px;
+      padding: 12px;
+      background: #171717;
+      color: white;
+      text-align: center;
+      border-radius: 7px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .comprar:hover {
+      background: #673de6;
+    }
+
+    .beneficios {
+      margin-top: 60px;
+      padding: 30px;
+      background: white;
+      border-radius: 14px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      text-align: center;
+    }
+
+    .beneficios h3 {
+      margin: 10px 0;
+      font-size: 15px;
+    }
+
+    .beneficios p {
+      color: #777;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    footer {
+      padding: 30px 8%;
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 900px) {
+      .produtos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      header {
+        padding: 22px 5%;
+      }
+
+      .hero {
+        margin: 25px 5%;
+      }
+
+      main {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .produtos {
+        grid-template-columns: 1fr;
+      }
+
+      .imagem {
+        height: 230px;
+      }
+
+      .beneficios {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 40px 25px;
+      }
+
+      .titulo {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">VORTEX.</div>
+
+    <nav>
+      <a href="#">Início</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#beneficios">Vantagens</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <span>COLEÇÃO EXCLUSIVA 2026</span>
+
+    <h1>O próximo nível começa aqui.</h1>
+
+    <p>
+      Tecnologia, estilo e inovação em um só lugar.
+      Descubra produtos selecionados para transformar
+      sua experiência.
+    </p>
+
+    <a href="#produtos" class="botao">Explorar produtos →</a>
+  </section>
+
+  <main>
+    <section id="produtos">
+      <div class="titulo">
+        <h2>Mais vendidos</h2>
+        <p>Qualidade que vale cada centavo.</p>
+      </div>
+
+      <div class="produtos">
+
+        <article class="produto">
+          <div class="imagem">🎧</div>
+          <div class="info">
+            <span class="categoria">Áudio</span>
+            <h3>Headphone Pro</h3>
+            <p class="preco">R$ 249,90</p>
+            <p class="parcelamento">Ou 5x de R$ 49,98</p>
+            <a href="#" class="comprar">Ver produto</a>
+          </div>
+        </article>
+
+        <article class="produto">
+          <div class="imagem">⌚</div>
+          <div class="info">
+            <span class="categoria">Acessórios</span>
+            <h3>Smartwatch X</h3>
+            <p class="preco">R$ 399,90</p>
+            <p class="parcelamento">Ou 6x de R$ 66,65</p>
+            <a href="#" class="comprar">Ver produto</a>
+          </div>
+        </article>
+
+        <article class="produto">
+          <div class="imagem">🎒</div>
+          <div class="info">
+            <span class="categoria">Lifestyle</span>
+            <h3>Mochila Urban</h3>
+            <p class="preco">R$ 159,90</p>
+            <p class="parcelamento">Ou 3x de R$ 53,30</p>
+            <a href="#" class="comprar">Ver produto</a>
+          </div>
+        </article>
+
+        <article class="produto">
+          <div class="imagem">⌨️</div>
+          <div class="info">
+            <span class="categoria">Informática</span>
+            <h3>Teclado Mecânico</h3>
+            <p class="preco">R$ 289,90</p>
+            <p class="parcelamento">Ou 5x de R$ 57,98</p>
+            <a href="#" class="comprar">Ver produto</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="beneficios" id="beneficios">
+
+      <div>
+        <div style="font-size: 30px;">🚚</div>
+        <h3>Entrega segura</h3>
+        <p>Seu pedido com acompanhamento.</p>
+      </div>
+
+      <div>
+        <div style="font-size: 30px;">🔒</div>
+        <h3>Compra protegida</h3>
+        <p>Mais tranquilidade na sua compra.</p>
+      </div>
+
+      <div>
+        <div style="font-size: 30px;">💬</div>
+        <h3>Suporte ao cliente</h3>
+        <p>Atendimento para tirar suas dúvidas.</p>
+      </div>
+
+    </section>
+  </main>
+
+  <footer id="contato">
+    <strong>VORTEX.</strong>
+    <p>Sua próxima descoberta está aqui.</p>
+    <p>© 2026 Vortex. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
